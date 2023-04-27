@@ -13,7 +13,7 @@
 #define Clr_Bits(Var,Bits) Var &= (~Bits)
 #define Get_Data(Var,BitNo) Var & (1 << BitNo)
 #define Set_Bits(Var,Bits) Var |= Bits
-
+#define Set_H_Byte(Var,BitNo,Value) Var |= (Value << (4*BitNo))
 //*****************************************************************************
 //
 // pins
@@ -28,6 +28,29 @@ enum PORTS
 	PORT_D ,
 	PORT_E ,
 	PORT_F 
+};
+
+enum UARTS
+{
+	UART0 ,
+	UART1 ,
+	UART2 ,
+	UART3 ,
+	UART4 ,
+	UART5 ,
+    UART6 , 
+	UART7
+};
+enum UART_GPIO
+{
+	UART0_GPIO ,
+	UART1_GPIO ,
+	UART3_GPIO ,
+	UART4_GPIO = 2 ,
+	UART2_GPIO  ,
+	UART6_GPIO = 3 ,
+    UART5_GPIO , 
+	UART7_GPIO = 4
 };
 
 enum PORTA
