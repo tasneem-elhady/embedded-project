@@ -1,5 +1,17 @@
 #ifndef TM4C123_H
 #define TM4C123_H
+
+//*****************************************************************************
+//
+// System Control registers 
+//
+//*****************************************************************************
+
+#define SYSCTL_RCGCGPIO_R       (*((volatile unsigned long *)0x400FE608))
+#define SYSCTL_RCGCUART_R       (*((volatile unsigned long *)0x400FE618))
+#define SYSCTL_PRGPIO_R         (*((volatile unsigned long *)0x400FEA08))
+#define SYSCTL_PRUART_R         (*((volatile unsigned long *)0x400FEA18))
+
 //*****************************************************************************
 //
 // GPIO registers (PORTA)
