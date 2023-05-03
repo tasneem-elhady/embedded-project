@@ -3,13 +3,14 @@
 
 typedef struct
 {
-    _Bool vaild;
-    f32 lat;
-    f32 lon;
+    double latitude;
+    double longtude;
 } geographic_point;
 
-void gps_init();
+void gps_init(void);
 
-geographic_point get_geographic_point();
+geographic_point get_geographic_point(void);
+
+void get_RMC_string(void);
 
 #endif
