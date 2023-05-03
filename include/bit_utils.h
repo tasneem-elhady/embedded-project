@@ -1,24 +1,39 @@
-#ifndef BIT_MATH_H
-#define BIT_MATH_H
+#ifndef BIT_UTILS
+#define BIT_UTILS
 //*****************************************************************************
 //
-// set, clear, toggle, get bit
+// set, clear, toggle, get 
 //
 //*****************************************************************************
-#define Set_Bit(Var,BitNo) Var |= (1 << BitNo)
-#define Clr_Bit(Var,BitNo) Var &= (~(1 << BitNo))
-#define Get_Bit(Var,BitNo) (Var >> BitNo) & 1
-#define Toggle_Bit(Var,BitNo) Var ^= (1 << BitNo)
+#define SET_BIT(Var,BitNo) Var |= (1 << BitNo)         //set bit to 1
+#define CLR_BIT(Var,BitNo) Var &= (~(1 << BitNo))      //set bit to 0
+#define TOGGLE_BIT(Var,BitNo) Var ^= (1 << BitNo)
 
-#define Clr_Bits(Var,Bits) Var &= (~Bits)
-#define Get_Data(Var,BitNo) Var & (1 << BitNo)
-#define Set_Bits(Var,Bits) Var |= Bits
-#define Set_H_Byte(Var,BitNo,Value) Var |= (Value << (4*BitNo))
+#define GET_BIT(Var,BitNo) Var & (1 << BitNo)          //returns 1 or 0 in bit location
+#define GET_BIT_VALUE(Var,BitNo) (Var >> BitNo) & 1    //returns 1 or 0
+
+#define CLR_BITS(Var,Bits) Var &= (~Bits)              //set bits to 0
+#define SET_BITS(Var,Bits) Var |= Bits                 //set bits to 1
+
+#define SET_H_BYTE(Var,BitNo,Value) Var |= (Value << (4*BitNo)) //set 4 bits to certain value used mostly in setting PCTL 
+
+
 //*****************************************************************************
 //
 // pins
 //
 //*****************************************************************************
+enum UARTS
+{
+	UART_0 ,
+	UART_1 ,
+	UART_2 ,
+	UART_3 ,
+	UART_4 ,
+	UART_5 ,
+    UART_6 , 
+	UART_7
+};
 
 enum PORTS
 {
@@ -30,17 +45,6 @@ enum PORTS
 	PORT_F 
 };
 
-enum UARTS
-{
-	UART0 ,
-	UART1 ,
-	UART2 ,
-	UART3 ,
-	UART4 ,
-	UART5 ,
-    UART6 , 
-	UART7
-};
 enum UART_GPIO
 {
 	UART0_GPIO ,
@@ -121,14 +125,12 @@ enum PORTF
 
 enum LED
 {
-	OFF,
 	RED = 0x2 ,
 	BLUE = 0x4 ,
 	GREEN = 0x8 ,
-	LEDS = 0xE
 };
 
-enum SWITCHES
+enum SWITCHES_PDR
 {
 	PRESSED , 
 	SW2_UNPRESSED = 0x01 ,
